@@ -1,0 +1,13 @@
+actor: ApiTester
+modules:
+    enabled:
+        - REST:
+            depends: PhpBrowser
+            url: https://ticketsyasmarinacircuit.com
+            part: Json
+        - \Helper\Api
+        - PhpBrowser
+        - Db:
+                   dsn: 'mysql:localhost;dbname=prestashop_test'
+                   user: 'root'
+                   password: 'root'

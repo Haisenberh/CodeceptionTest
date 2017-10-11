@@ -1,0 +1,6 @@
+1) composer require "codeception/codeception" --dev to install codeception
+2) Phar Download codecept.phar http://codeception.com/codecept.phar Copy it into your project.
+3) Run CLI utility: php codecept.phar
+4) After you successfully installed Codeception, run this command: codecept bootstrap
+5) codecept generate:suite api to generate folder structure
+
