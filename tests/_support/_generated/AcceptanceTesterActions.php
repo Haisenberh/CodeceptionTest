@@ -6,7 +6,6 @@ namespace _generated;
 // @codingStandardsIgnoreFile
 
 use Codeception\Module\PhpBrowser;
-use Helper\Acceptance;
 
 trait AcceptanceTesterActions
 {

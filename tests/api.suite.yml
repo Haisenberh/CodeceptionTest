@@ -8,6 +8,7 @@ modules:
         - \Helper\Api
         - PhpBrowser
         - Db:
-                   dsn: 'mysql:localhost;dbname=prestashop_test'
+                   dsn: 'mysql:host=127.0.0.1;dbname=prestashop'
                    user: 'root'
                    password: 'root'
+                   port: '3307'
