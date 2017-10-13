@@ -32,4 +32,10 @@ class Api extends \Codeception\Module
         $experienceId = $I->grabFromDatabase('ps_currency', 'id_currency', array('name' => $currency_name));
         return $experienceId;
     }
+
+    public function getCarrierIdByName(\ApiTester $I, string $carrier_name)
+    {
+        $experienceId = $I->grabFromDatabase('ps_carrier', 'id_carrier', array('name' => $carrier_name));
+        return $experienceId;
+    }
 }

@@ -18,6 +18,6 @@ class OrganizerCest
         $I->sendGET('/dispatch.php?action=getOrganizerInformation');
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
-        $I->seeResponseEquals('{"url":"http:\/\/www.yasmarinacircuit.com\/","phone":"+971 0 2659 9800","cssOrganizer":false,"copyright":"","default_page_url":null}');
+        $I->seeResponseMatchesJsonType(['url' => 'string', 'phone' => 'string', 'cssOrganizer' => 'boolean', 'copyright' => 'string|null', 'default_page_url' => 'string|null']);
     }
 }
