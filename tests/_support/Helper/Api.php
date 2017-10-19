@@ -38,4 +38,10 @@ class Api extends \Codeception\Module
         $experienceId = $I->grabFromDatabase('ps_carrier', 'id_carrier', array('name' => $carrier_name));
         return $experienceId;
     }
+
+    public function getNationalityIdByName(\ApiTester $I, string $nationality)
+    {
+        $experienceId = $I->grabFromDatabase('ps_carrier', 'id_carrier', array('name' => $nationality));
+        return $experienceId;
+    }
 }
