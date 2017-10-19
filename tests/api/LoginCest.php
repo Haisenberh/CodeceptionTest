@@ -20,7 +20,7 @@ class LoginCest
         $I->sendPOST('/action.php?ap=V4&p=Customer&c=Customer&a=login',['customer' => ['email' => $this->registered_user_email, 'password' => $this->registered_user_password]]);
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
-        $I->seeResponseEquals('{"customer":{"id_customer":1,"first_name":null,"last_name":"Hembar","newsletter":"1"}}');
+        $I->seeResponseMatchesJsonType(["customer" => ["id_customer"=> 'integer',"first_name"=>'string|null',"last_name"=>'string|null',"newsletter"=>'string|null']]);
     }
 
     public function loginAsNotRegisteredUser(\ApiTester $I)

@@ -20,7 +20,105 @@ class CartCest
         $I->wantTo('Get information event and meta valid test');
         $I->sendGET('/action.php?a=getCartDetail&ap=V4&c=Cart&p=Cart');
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
-        $I->seeResponseEquals('{"response":1,"cart":{"id":null,"id_customer":null,"products":null,"cart_total_cc":0,"cart_total_cc_display":"AED 0.00","cart_total":0,"cart_total_display":"AED 0.00","cart_total_with_discount":0,"cart_total_with_discount_display":"AED 0.00","ticket_total":null,"ticket_total_display":"AED 0.00","gift_voucher_total":null,"gift_voucher_total_display":"AED 0.00","accessory_total":null,"accessory_total_display":"AED 0.00","economy_total":null,"economy_total_display":"AED 0.00","order_paid_gift_voucher":null,"order_paid_gift_voucher_display":"AED 0.00","order_paid_account_balance":null,"order_paid_account_balance_display":"AED 0.00","order_rest_to_pay":null,"order_rest_to_pay_display":"AED 0.00","order_rest_to_pay_cc":null,"order_rest_to_pay_cc_display":"AED 0.00","order_already_paid":null,"order_already_paid_display":"AED 0.00","order_already_paid_cc":null,"order_already_paid_cc_display":"AED 0.00","order_total_real":0,"order_total_real_display":"AED 0.00","order_total_real_display_abs":"AED 0.00","order_total":0,"order_total_display":"AED 0.00","order_total_split_display":{"currency_signe":"AED","currency_placement":"before","price_without_cents":"0","cents":"00"},"order_total_with_installment":null,"order_total_with_installment_display":{"currency_signe":"AED","currency_placement":"before","price_without_cents":"0","cents":"00"},"handlingfee_total":null,"handlingfee_total_display":"AED 0.00","shipping_total":0,"shipping_total_display":"AED 0.00","shipping_total_cc":0,"shipping_total_display_cc":"AED 0.00","cart_discounts":null,"banking_fee_total":null,"banking_fee_total_cc":null,"banking_fee_total_display":"AED 0.00","insurance_total":0,"insurance_total_display":"AED 0.00","discount_total":null,"discount_total_display":"AED 0.00","list_of_discounts":[],"installment_total":null,"installment_total_display":"AED 0.00","hospitality_total":null,"hospitality_total_display":"AED 0.00","downloadable_total":null,"downloadable_total_display":"AED 0.00","width_total":4,"surprise":"1","skip_funnel_address":"1","has_insurance":false,"id_referrer":false,"type_total":[],"type_total_cc":[],"type_total_display":[],"type_total_cc_display":[],"id_address_delivery":0,"id_address_invoice":0,"continue_shopping_url":"home","is_private_sale_cart":false,"total_product_cart_quantity":0,"shipping":"pickup","ticket_total_without_reduction_display":"AED 0.00","display_installment":false,"active_installment":false,"available_installment":[],"cart_installment_number":0,"installment_number":0,"installment_plan":null,"paypal_selected":false,"display_paypal":false,"hasGiftVoucherPayment":true,"hasAccountPayment":false}}');
+        $I->seeResponseMatchesJsonType([
+            "response" => 'integer',
+            "cart" => [
+                "id" => 'string|null',
+                "id_customer" => 'string|null',
+                "products" => 'string|null',
+                "cart_total_cc" => 'integer',
+                "cart_total_cc_display" => 'string',
+                "cart_total" => 'integer',
+                "cart_total_display" => 'string',
+                "cart_total_with_discount" => 'integer',
+                "cart_total_with_discount_display" => 'string',
+                "ticket_total" => 'string|null',
+                "ticket_total_display" => 'string',
+                "gift_voucher_total" => 'string|null',
+                "gift_voucher_total_display" => 'string',
+                "accessory_total" => 'string|null',
+                "accessory_total_display" => 'string',
+                "economy_total" => 'string|null',
+                "economy_total_display" => 'string',
+                "order_paid_gift_voucher" => 'string|null',
+                "order_paid_gift_voucher_display" => 'string',
+                "order_paid_account_balance" => 'string|null',
+                "order_paid_account_balance_display" => 'string',
+                "order_rest_to_pay" => 'string|null',
+                "order_rest_to_pay_display" => 'string',
+                "order_rest_to_pay_cc" => 'string|null',
+                "order_rest_to_pay_cc_display" => 'string',
+                "order_already_paid" => 'string|null',
+                "order_already_paid_display" => 'string',
+                "order_already_paid_cc" => 'string|null',
+                "order_already_paid_cc_display" => 'string',
+                "order_total_real" => 'integer',
+                "order_total_real_display" => 'string',
+                "order_total_real_display_abs" => 'string',
+                "order_total" => 'integer',
+                "order_total_display" => 'string',
+                "order_total_split_display" => [
+                    "currency_signe" => 'string',
+                    "currency_placement" => 'string',
+                    "price_without_cents" => 'string',
+                    "cents" => 'string',
+                ],
+                "order_total_with_installment" => 'string|null',
+                "order_total_with_installment_display" => [
+                    "currency_signe" => 'string',
+                    "currency_placement" => 'string',
+                    "price_without_cents" => 'string',
+                    "cents" => 'string',
+                ],
+                "handlingfee_total" => 'string|null',
+                "handlingfee_total_display" => 'string',
+                "shipping_total" => 'integer',
+                "shipping_total_display" => 'string',
+                "shipping_total_cc" => 'integer',
+                "shipping_total_display_cc" => 'string',
+                "cart_discounts" => 'string|null',
+                "banking_fee_total" => 'string|null',
+                "banking_fee_total_cc" => 'string|null',
+                "banking_fee_total_display" => 'string',
+                "insurance_total" => 'integer',
+                "insurance_total_display" => 'string',
+                "discount_total" => 'string|null',
+                "discount_total_display" => 'string',
+                "list_of_discounts" => [],
+                "installment_total" => 'string|null',
+                "installment_total_display" => 'string',
+                "hospitality_total" => 'string|null',
+                "hospitality_total_display" => 'string',
+                "downloadable_total" => 'string|null',
+                "downloadable_total_display" => 'string',
+                "width_total" => 'integer',
+                "surprise" => 'string|null',
+                "skip_funnel_address" => 'string|null',
+                "has_insurance" => 'boolean',
+                "id_referrer" => 'boolean',
+                "type_total" => [],
+                "type_total_cc" => [],
+                "type_total_display" => [],
+                "type_total_cc_display" => [],
+                "id_address_delivery" => 'integer',
+                "id_address_invoice" => 'integer',
+                "continue_shopping_url" => "string",
+                "is_private_sale_cart" => 'boolean',
+                "total_product_cart_quantity" => 'integer',
+                "shipping" => "string",
+                "ticket_total_without_reduction_display" => 'string',
+                "display_installment" => 'boolean',
+                "active_installment" => 'boolean',
+                "available_installment" => [],
+                "cart_installment_number" => 'integer',
+                "installment_number" => 'integer',
+                "installment_plan" => 'string|null',
+                "paypal_selected" => 'boolean',
+                "display_paypal" => 'boolean',
+                "hasGiftVoucherPayment" => 'boolean',
+                "hasAccountPayment" => 'boolean'
+            ]
+        ]);
         $I->seeResponseIsJson();
     }
 
@@ -46,7 +144,7 @@ class CartCest
     public function getCarriersByCountry(\ApiTester $I)
     {
         $I->wantTo('Get carriers by country');
-        $I->sendPOST('/dispatch.php?action=getCarriersByCountry', ['id_country' => '244','id_carrier' => $this->carrier_id]);
+        $I->sendPOST('/dispatch.php?action=getCarriersByCountry', ['id_country' => '244', 'id_carrier' => $this->carrier_id]);
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
         //todo find out how set id_cart parameter
