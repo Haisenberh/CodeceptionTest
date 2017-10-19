@@ -44,7 +44,7 @@ class LoginCest
     public function loginWithoutPasswordParameter(\ApiTester $I)
     {
         $I->wantTo('Login without password parameter');
-        $I->sendPOST('/action.php?ap=V4&p=Customer&c=Customer&a=login',['customer' => ['email' => 'test-boo@platinium-group.org']]);
+        $I->sendPOST('/action.php?ap=V4&p=Customer&c=Customer&a=login',['customer' => ['email' => $this->registered_user_password]]);
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
         $I->seeResponseEquals('{"error":402,"error_message":"Parameter password missing"}');
