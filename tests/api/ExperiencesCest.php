@@ -138,7 +138,10 @@ class ExperiencesCest
         $I->sendPOST('/action.php?c=Experiences&a=getQuickFilters');
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
-        $I->seeResponseEquals('[{"id":1,"name":"Popularity"},{"id":3,"name":"Alphabetical (A-Z)"},{"id":4,"name":"Alphabetical (Z-A)"},{"id":5,"name":"Price (+ to -)"},{"id":6,"name":"Price (- to +)"}]');
+        $I->seeResponseMatchesJsonType([
+            "id" => 'integer',
+            "name" => 'string'
+        ]);
     }
 
     public function getExperienceProductInformation(\ApiTester $I)
@@ -147,7 +150,19 @@ class ExperiencesCest
         $I->sendPOST('/action.php?c=Experiences&a=getProduct', ['id_product' => $this->product_id]);
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
-        $I->seeResponseEquals('{"id_product":"90231","id_category_default":"13251","category_name":"Drive YAS","name":"ASTON MARTIN GT4 DRIVE","videoUrl":"https:\/\/www.youtube.com\/embed\/3tllnYuJa0M","isVideoDefault":"1","meta_title":"","meta_description":"","meta_keywords":"","sliderImages":["110750-astonmartingt4carousel2jpg.jpeg?v=1466000422","202846-01AstonMartin1210x435jpg.jpeg?v=1474465713","531365-astonmartinticketingjpeg.jpeg?v=1480495188","61046-Experience2jpg.jpeg?v=1475507571","72180-astonmartingt4carousel3jpg.jpeg?v=1466000422"],"defaultImage":"\/img\/experiences\/products\/no-photo.jpg"}');
+        $I->seeResponseMatchesJsonType([
+            "id_product" => 'string',
+            "id_category_default" => 'string',
+            "category_name" => 'string',
+            "name" => 'string',
+            "videoUrl" => 'string',
+            "isVideoDefault" => "string",
+            "meta_title" => "string",
+            "meta_description" => "string",
+            "meta_keywords" => 'string',
+            "sliderImages" => 'array',
+            "defaultImage" => 'string',
+        ]);
     }
 
     public function getExperienceProducts(\ApiTester $I)
@@ -202,7 +217,11 @@ class ExperiencesCest
         $I->sendPOST('/action.php?c=Experiences&a=getDescriptions', ['id_product' => $this->product_id]);
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
-        $I->seeResponseContains('"id":"631","name":"about","text":"<b>ASTON MARTIN GT4<\/b>\n<br><\/br>\nThe Aston Martin GT4 has the look of its distinguished Vantage sibling, but moves fearlessly like a race car.');
+        $I->seeResponseMatchesJsonType([
+            "id" => 'string',
+            "name" => 'string',
+            "text" => 'string'
+        ]);
     }
 
     public function getMightAlsoBeLikedProducts(\ApiTester $I)
