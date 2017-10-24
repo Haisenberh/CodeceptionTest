@@ -14,7 +14,7 @@ class ShopCest
     // tests
     public function getCurrenciesAvailableForEvent(\ApiTester $I)
     {
-        $I->wantTo('Get shop information');
+        $I->wantTo('Get shop information api test');
         $I->sendGET('/dispatch.php?action=getShop');
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();

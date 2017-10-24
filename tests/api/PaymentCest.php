@@ -13,7 +13,7 @@ class PaymentCest
 
     public function getPaymentInformationValidTest(\ApiTester $I)
     {
-        $I->wantTo('Get payment information valid test');
+        $I->wantTo('Get payment information positive api test');
         $I->sendGET('/action.php?ap=Front&c=Payment&a=getPaymentMethods&platform=v4&id_lang=en');
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();

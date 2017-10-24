@@ -14,7 +14,7 @@ class OrganizerCest
     // tests
     public function getOrganizerInformation(\ApiTester $I)
     {
-        $I->wantTo('Get organizer information');
+        $I->wantTo('Get organizer information api test');
         $I->sendGET('/dispatch.php?action=getOrganizerInformation');
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();

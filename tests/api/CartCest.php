@@ -15,9 +15,9 @@ class CartCest
     {
     }
 
-    public function getEventMetaInformationNegativeTest(\ApiTester $I)
+    public function getCartDetailsValidTest(\ApiTester $I)
     {
-        $I->wantTo('Get information event and meta valid test');
+        $I->wantTo('Get information event and meta positive api test');
         $I->sendGET('/action.php?a=getCartDetail&ap=V4&c=Cart&p=Cart');
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseMatchesJsonType([
@@ -143,7 +143,7 @@ class CartCest
 
     public function getCarriersByCountry(\ApiTester $I)
     {
-        $I->wantTo('Get carriers by country');
+        $I->wantTo('Get carriers by country api test');
         $I->sendPOST('/dispatch.php?action=getCarriersByCountry', ['id_country' => '244', 'id_carrier' => $this->carrier_id]);
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();

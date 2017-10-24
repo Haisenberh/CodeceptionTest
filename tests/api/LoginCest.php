@@ -16,7 +16,7 @@ class LoginCest
     // tests
     public function loginAsRegisteredUser(\ApiTester $I)
     {
-        $I->wantTo('Login as registered user');
+        $I->wantTo('Login as registered user api positive test');
         $I->sendPOST('/action.php?ap=V4&p=Customer&c=Customer&a=login',['customer' => ['email' => $this->registered_user_email, 'password' => $this->registered_user_password]]);
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
@@ -25,7 +25,7 @@ class LoginCest
 
     public function loginAsNotRegisteredUser(\ApiTester $I)
     {
-        $I->wantTo('Login as not registered user');
+        $I->wantTo('Login as not registered user api negative test');
         $I->sendPOST('/action.php?ap=V4&p=Customer&c=Customer&a=login',['customer' => ['email' => 'test-boo@platinium-group.org', 'password' => $this->registered_user_password]]);
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
@@ -34,7 +34,7 @@ class LoginCest
 
     public function loginWithoutEmailParameter(\ApiTester $I)
     {
-        $I->wantTo('Login without email parameter');
+        $I->wantTo('Login without email parameter api negative test');
         $I->sendPOST('/action.php?ap=V4&p=Customer&c=Customer&a=login',['customer' => ['password' => $this->registered_user_password]]);
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
@@ -43,7 +43,7 @@ class LoginCest
 
     public function loginWithoutPasswordParameter(\ApiTester $I)
     {
-        $I->wantTo('Login without password parameter');
+        $I->wantTo('Login without password parameter negative api test');
         $I->sendPOST('/action.php?ap=V4&p=Customer&c=Customer&a=login',['customer' => ['email' => $this->registered_user_password]]);
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
@@ -52,7 +52,7 @@ class LoginCest
 
     public function loginWithoutEmailAndPasswordParameter(\ApiTester $I)
     {
-        $I->wantTo('Login without email and password parameter');
+        $I->wantTo('Login without email and password negative parameter');
         $I->sendPOST('/action.php?ap=V4&p=Customer&c=Customer&a=login');
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::INTERNAL_SERVER_ERROR);
     }

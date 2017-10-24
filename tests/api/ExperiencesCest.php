@@ -37,7 +37,7 @@ class ExperiencesCest
 
     public function getExperiencesSettings(\ApiTester $I)
     {
-        $I->wantTo('Get experiences settings');
+        $I->wantTo('Get experiences settings api test');
         $I->sendPOST('/action.php?c=Experiences&a=getExperienceSettings');
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
@@ -64,7 +64,7 @@ class ExperiencesCest
 
     public function getExperiencesCategoryName(\ApiTester $I)
     {
-        $I->wantTo('Get experiences category name');
+        $I->wantTo('Get experiences category name api test');
         $I->sendPOST('/action.php?c=Experiences&a=getCategoryName', ['id_experience' => $this->driving_experience_id]);
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
@@ -81,7 +81,7 @@ class ExperiencesCest
 
     public function getExperiencesCurrency(\ApiTester $I)
     {
-        $I->wantTo('Get experiences currency');
+        $I->wantTo('Get experiences currency api test');
         $I->sendPOST('/action.php?c=Experiences&a=getCurrency', ['id_currency' => $this->dirham_currency_id]);
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
@@ -93,7 +93,7 @@ class ExperiencesCest
 
     public function getExperiencesHasAvailability(\ApiTester $I)
     {
-        $I->wantTo('Get experiences availability');
+        $I->wantTo('Get experiences availability api test');
         $I->sendPOST('/action.php?c=Experiences&a=hasAvailability', ['id_product' => $this->product_id]);
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
@@ -108,7 +108,7 @@ class ExperiencesCest
 
     public function getExperiencesNextAvailabilities(\ApiTester $I)
     {
-        $I->wantTo('Get experiences next availabilities');
+        $I->wantTo('Get experiences next availabilities api test');
         $I->sendPOST('/action.php?c=Experiences&a=getProductNextAvailabilities', ['id_product' => $this->product_id, 'month_day' => '2017-03-01']);
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
@@ -117,7 +117,7 @@ class ExperiencesCest
 
     public function experiencesGetMonth(\ApiTester $I)
     {
-        $I->wantTo('Get experiences availability groped by month ');
+        $I->wantTo('Get experiences availability groped by month api test');
         $I->sendPOST('/action.php?c=Experiences&a=getMonths', ['id_experience' => $this->driving_experience_id]);
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
@@ -126,7 +126,7 @@ class ExperiencesCest
 
     public function getExperiencesMonthAvailabilities(\ApiTester $I)
     {
-        $I->wantTo('Get experiences month availability information ');
+        $I->wantTo('Get experiences month availability information api test');
         $I->sendPOST('/action.php?c=Experiences&a=getMonthAvailabilities', ['id_product' => $this->product_id, 'date_for_month' => '2017-10-01', 'isFront' => 'true']);
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
@@ -134,7 +134,7 @@ class ExperiencesCest
 
     public function getExperiencesQuickFilters(\ApiTester $I)
     {
-        $I->wantTo('Get experiences quick filters information ');
+        $I->wantTo('Get experiences quick filters information api test');
         $I->sendPOST('/action.php?c=Experiences&a=getQuickFilters');
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
@@ -146,7 +146,7 @@ class ExperiencesCest
 
     public function getExperienceProductInformation(\ApiTester $I)
     {
-        $I->wantTo('Get experiences product information ');
+        $I->wantTo('Get experiences product information api test');
         $I->sendPOST('/action.php?c=Experiences&a=getProduct', ['id_product' => $this->product_id]);
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
@@ -167,7 +167,7 @@ class ExperiencesCest
 
     public function getExperienceProducts(\ApiTester $I)
     {
-        $I->wantTo('Get experiences products');
+        $I->wantTo('Get experiences products api test');
         $I->sendPOST('/action.php?c=Experiences&a=getProducts', ['id_experience' => $this->driving_experience_id]);
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
@@ -186,7 +186,7 @@ class ExperiencesCest
 
     public function getExperienceProductsFilters(\ApiTester $I)
     {
-        $I->wantTo('Get experiences products filters');
+        $I->wantTo('Get experiences products filters api test');
         $I->sendPOST('/action.php?c=Experiences&a=getProductsFilters', ['id_product' => $this->product_id]);
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
@@ -195,7 +195,7 @@ class ExperiencesCest
 
     public function getExperienceMasterProductData(\ApiTester $I)
     {
-        $I->wantTo('Get experiences master product data');
+        $I->wantTo('Get experiences master product data api test');
         $I->sendPOST('/action.php?c=Experiences&a=getMasterProductData', ['id_product' => $this->product_id]);
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
@@ -213,7 +213,7 @@ class ExperiencesCest
 
     public function getExperienceDescription(\ApiTester $I)
     {
-        $I->wantTo('Get experiences product description');
+        $I->wantTo('Get experiences product description api test');
         $I->sendPOST('/action.php?c=Experiences&a=getDescriptions', ['id_product' => $this->product_id]);
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();

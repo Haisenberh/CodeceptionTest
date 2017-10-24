@@ -13,7 +13,7 @@ class EventCest
 
     public function getEventMetaInformationNegativeTest(\ApiTester $I)
     {
-        $I->wantTo('Get event meta information without id_lang parameter negative test');
+        $I->wantTo('Get event meta information without id_lang parameter negative api test');
         $I->sendGET('/dispatch.php?action=getEventMetas');
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
@@ -22,7 +22,7 @@ class EventCest
 
     public function getEventMetaInformationValidTest(\ApiTester $I)
     {
-        $I->wantTo('Get event meta information valid test');
+        $I->wantTo('Get event meta information valid api test');
         $I->sendGET('/dispatch.php?action=getEventMetas', ['id_lang' => 'en']);
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
@@ -40,7 +40,7 @@ class EventCest
 
     public function getEventSlidesImagesNegativeTest(\ApiTester $I)
     {
-        $I->wantTo('Get event slides pictures negative test');
+        $I->wantTo('Get event slides pictures negative api test');
         $I->sendGET('/dispatch.php?action=getEventSlideshowImages');
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();

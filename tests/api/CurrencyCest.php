@@ -14,7 +14,7 @@ class CurrencyCest
     // tests
     public function getCurrenciesAvailableForEvent(\ApiTester $I)
     {
-        $I->wantTo('Get available currencies for event');
+        $I->wantTo('Get available currencies for event api test');
         $I->sendGET('/dispatch.php?action=getCurrencies');
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
