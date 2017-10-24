@@ -8,3 +8,5 @@
 vendor
 tests/_data
 /tests/_output
+/tests/api.suite.yml
+/codeception.yml

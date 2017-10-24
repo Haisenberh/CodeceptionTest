@@ -2,6 +2,8 @@
 
 ##Installation
 
+Create *api.suite.yml* and *codeception.yml* files from appreciate *.dist* files.
+
 ###Composer
 
     php composer.phar require "codeception/codeception"
@@ -15,7 +17,7 @@ Copy it into your project.
 
 Run CLI utility:
 
-    *php codecept.phar*
+    php codecept.phar
 
 After you successfully installed Codeception, run this command: 
 
@@ -33,7 +35,7 @@ Installation:
 
 To run all api tests:
     
-    codecept run api   (from root folder)
+    codecept run api (from root folder)
 
 To run single test:
 
@@ -50,3 +52,9 @@ To run single test:
     codecept run --debug: print steps and debug information
 
     codecept run -vvv: print internal debug information
+    
+###Run on docker environment:
+
+There is a special configuration in api.suite.yml for running api tests inside docker container. You should execute tests with *--env* parameter.
+
+    php vendor/bin/codecept run api --env docker_env
