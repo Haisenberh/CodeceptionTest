@@ -1,15 +1,14 @@
 # CodeceptionTest
 
-##Installation
+## Installation
 
-Create *api.suite.yml* and *codeception.yml* files from appreciate *.dist* files.
+Create *api.suite.yml* and *codeception.yml* files from appreciate *.dist* files. Update configuration variables in these files if needed.
 
-###Composer
+### Composer
 
     php composer.phar require "codeception/codeception"
 
-
-###Phar
+### Phar
 
 Download http://codeception.com/codecept.phar 
 
@@ -23,7 +22,7 @@ After you successfully installed Codeception, run this command:
 
     codecept bootstrap
 
-###Faker
+### Faker
 
 To generate random test values we use Faker. Faker is a PHP library that generates fake data for you.
 
@@ -31,7 +30,7 @@ Installation:
 
     composer require fzaninotto/faker
 
-###RUN
+### RUN
 
 To run all api tests:
     
@@ -41,7 +40,7 @@ To run single test:
 
     codecept run api tests/api/ShopCest.php
 
-#####Verbosity modes:
+##### Verbosity modes:
 
     codecept run -v:
 
@@ -53,7 +52,7 @@ To run single test:
 
     codecept run -vvv: print internal debug information
     
-###Run on docker environment:
+### Run on docker environment:
 
 There is a special configuration in api.suite.yml for running api tests inside docker container. You should execute tests with *--env* parameter.
 
