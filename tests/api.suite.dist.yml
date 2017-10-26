@@ -3,7 +3,7 @@ modules:
     enabled:
         - REST:
             depends: PhpBrowser
-            url: https://ticketsyasmarinacircuit.com
+            url: 'https://ticketsyasmarinacircuit.com'
             part: Json
         - \Helper\Api
         - PhpBrowser
@@ -18,7 +18,7 @@ env:
             enabled:
                 - REST:
                     depends: PhpBrowser
-                    url: https://ticketsyasmarinacircuit.com
+                    url: 'https://ticketsyasmarinacircuit.com'
                     part: Json
                 - \Helper\Api
                 - PhpBrowser

@@ -28,6 +28,7 @@ class RegistrationCest
             'password' => $this->valid_password, 'passwordConfirm' => $this->valid_password, 'contact_number' => $this->faker->e164PhoneNumber, 'gender' => '1', 'nationality' => '38', 'birthDay' => '1', 'birthMonth' => '01', 'birthYear' => '2000', 'isFirstTime' => 'yes']]);
         $I->seeResponseCodeIs(\Codeception\Util\HttpCode::OK); // 200
         $I->seeResponseIsJson();
+        $I->seeResponseContains('"error":0');
         $I->seeResponseMatchesJsonType(['error' => 'integer', 'customer' => ["id_customer" => 'integer', "email" => 'string|null', "newsletter" => 'integer']]);
     }
 

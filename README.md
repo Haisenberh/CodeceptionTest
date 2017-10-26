@@ -54,6 +54,6 @@ To run single test:
     
 ### Run on docker environment:
 
-There is a special configuration in api.suite.yml for running api tests inside docker container. You should execute tests with *--env* parameter.
+There is a special configuration in api.suite.yml for running api tests inside docker container. You should execute tests with *--env* parameter from tests root directory.
 
-    php vendor/bin/codecept run api --env docker_env
+    php ../../vendor/bin/codecept run api --env docker_env
